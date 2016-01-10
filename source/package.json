@@ -22,5 +22,12 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "stylus": "^0.53.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1"
   }
 }
