@@ -1,0 +1,2 @@
+div(ng-repeat="game in games | filter: { featured: true }")
+    a(href="#/games/{{ game._id }}") {{ game.name }}

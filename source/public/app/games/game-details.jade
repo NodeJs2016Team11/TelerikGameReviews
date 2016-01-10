@@ -1,0 +1,5 @@
+.container
+    h2 {{ game.name }}
+    p {{ game.dateAdded | date }}
+    ul
+        li(ng-repeat="tag in game.tags") {{ tag }}

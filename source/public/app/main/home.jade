@@ -1,0 +1,13 @@
+.container
+    .jumbotron
+        h1 Telerik Game Reviews
+        h2 The place to comment, rate and learn about the newest games out there
+    .row
+        .col-md-6
+            .panel.panel-success
+                .panel-heading.text-center Featured
+                .panel-body(ng-include="'/partials/main/featured-games'")
+        .col-md-6
+            .panel.panel-primary
+                .panel-heading.text-center New
+                .panel-body(ng-include="'/partials/main/new-games'")
