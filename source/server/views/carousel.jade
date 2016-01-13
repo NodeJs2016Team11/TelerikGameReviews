@@ -6,34 +6,29 @@
     li.active(data-target='#myCarousel', data-slide-to='2')
   .carousel-inner(role='listbox')
     .item.text-center
-      img.first-slide(src='/images/call-of-duty1.jpg', alt='First slide')
+      img.first-slide(src=data[0].mainPageImage, alt=data[0].name)
       .container
         .carousel-caption
-          h1 Example headline.
+          h1
+            =data[0].name
           p
-            | Note: If you're viewing this page via a 
-            code file://
-            |  URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.
-          p
-            a.btn.btn-lg.btn-primary(href='#', role='button') Sign up today
+            =data[0].description
     .item
-      img.second-slide(src='/images/fifa-16.jpg', alt='Second slide')
+      img.second-slide(src=data[1].mainPageImage, alt=data[1].name)
       .container
         .carousel-caption
-          h1 Another example headline.
+          h1
+            =data[1].name
           p
-            | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          p
-            a.btn.btn-lg.btn-primary(href='#', role='button') Learn more
+            =data[1].description
     .item.active
-      img.third-slide(src='/images/bloodborne.jpg', alt='Third slide')
+      img.third-slide(src=data[2].mainPageImage, alt=data[2].name)
       .container
         .carousel-caption
-          h1 One more for good measure.
+          h1
+            =data[2].name
           p
-            | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          p
-            a.btn.btn-lg.btn-primary(href='#', role='button') Browse gallery
+            =data[2].description
   a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
     span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
     span.sr-only Previous

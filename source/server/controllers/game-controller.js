@@ -55,7 +55,7 @@ module.exports = function (Game) {
 
   function getCreate(req, res) {
     res.render('game-add', {
-        isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated()
     });
   }
 

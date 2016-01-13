@@ -1,22 +1,24 @@
 'use strict';
 
-module.exports = function (Product) {
+var auth = require('../config/auth');
 
+module.exports = function (Game) {
   function goHome(req, res) {
     res.redirect('/home');
   }
 
 
   function get(req, res) {
-    Product.find({}, {}, {
+    Game.find({}, {}, {
       skip: 0, // Starting Row
       limit: 5, // Ending Row
       sort: {
         date: -1 //Sort by Date Added DESC
       }
-    }, function (err, products) {
+    }, function (err, games) {
+      console.log(games);
       res.render('home', {
-        data: products,
+        data: games,
         isAuthenticated: req.isAuthenticated()
       });
     });
