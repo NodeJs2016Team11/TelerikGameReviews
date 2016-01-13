@@ -12,6 +12,14 @@ header.navbar.navbar-inverse.navbar-fixed-top(role='banner')
       ul.nav.navbar-nav
         li
           a(href="/games") Games
+        if isAuthenticated && isAdmin
+          li
+            a(href="/games/add") Add Game
+        li
+          a(href="/reviews") Reviews
+        if isAuthenticated && isAdmin
+          li
+            a(href="/reviews/add") Add Review
       div.nav.navbar-nav.navbar-right
         .navbar-form
           .btn-toolbar
