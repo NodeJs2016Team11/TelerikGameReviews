@@ -24,12 +24,11 @@ module.exports = function (Game) {
     let game = new Game({
       name: reqGame.name,
       description: reqGame.description,
-      price: +reqGame.price,
       image: reqGame.image
     });
 
-    product.save(function (err) {
-      res.redirect('/products/' + game._id);
+    game.save(function (err) {
+      res.redirect('/games/' + game._id);
     });
   }
 
