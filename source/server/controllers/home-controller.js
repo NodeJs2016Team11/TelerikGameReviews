@@ -16,10 +16,11 @@ module.exports = function (Game) {
         date: -1 //Sort by Date Added DESC
       }
     }, function (err, games) {
-      console.log(games);
+      console.log(req.isAuthenticated());
       res.render('home', {
         data: games,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        isAdmin: auth.isInRole("admin")
       });
     });
   }
