@@ -8,7 +8,8 @@ module.exports = function (Game) {
         throw err;
       }
       res.render('games-all', {
-        data: games
+        data: games,
+        isAuthenticated: req.isAuthenticated()
       });
     });
   }
@@ -38,14 +39,17 @@ module.exports = function (Game) {
 
     Game.findById(id, function (err, game) {
       res.render('game-details', {
-        data: game
+        data: game,
+        isAuthenticated: req.isAuthenticated()
       });
     });
 
   }
 
   function getCreate(req, res) {
-    res.render('game-add');
+    res.render('game-add', {
+        isAuthenticated: req.isAuthenticated()
+    });
   }
 
   let controller = {

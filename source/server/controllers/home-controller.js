@@ -1,7 +1,5 @@
 'use strict';
 
-var auth = require('../config/auth');
-
 module.exports = function (Product) {
 
   function goHome(req, res) {
