@@ -30,4 +30,4 @@ node_modules
 .idea/
 
 # Bower custom folder
-public/components
+public/components/
