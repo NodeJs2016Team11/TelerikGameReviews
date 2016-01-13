@@ -15,22 +15,28 @@ module.exports = function (Game) {
   }
 
   function post(req, res) {
-    let reqGame = req.body;
-    console.log(reqGame);
+    let reqGame = req.body,
+        images = [],
+        videos = [];
 
-    if(!reqGame.image && req.file){
-      reqGame.image = req.file.path.substr('public/'.length);
+    images.push(req.file.path);
+
+    if(req.body.video) {
+      videos.push(req.body.video);
     }
-    //validate product
+
     let game = new Game({
       name: reqGame.name,
       description: reqGame.description,
       price: +reqGame.price,
-      image: reqGame.image
+      images: images,
+      videos: videos,
+      tags: reqGame.tags.split(' ')
     });
+    game.save(function (err) {
+      if(err) throw err;
 
-    product.save(function (err) {
-      res.redirect('/products/' + game._id);
+      res.redirect('/games/' + game._id);
     });
   }
 
@@ -38,6 +44,7 @@ module.exports = function (Game) {
     let id = req.params.id;
 
     Game.findById(id, function (err, game) {
+      console.log(game);
       res.render('game-details', {
         data: game,
         isAuthenticated: req.isAuthenticated()

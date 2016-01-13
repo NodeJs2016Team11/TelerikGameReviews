@@ -5,24 +5,33 @@ block content
       .well.bs-component
         form.form-horizontal(action='/games', method='POST', enctype="multipart/form-data")
           fieldset
-            legend Add New Game///FIX IT WITH THE FIELDS FROM DB!
+            legend Add New Game
             .form-group
-              label.col-lg-2.control-label(for='title') Name
+              label.col-lg-2.control-label(for='title') Name*
               .col-lg-10
-                input#title.form-control(name='title',type='text', placeholder='Title')
+                input#title.form-control(name='title',type='text', placeholder='Game name', required="required")
             .form-group
-              label.col-lg-2.control-label(for='description') Description
+              label.col-lg-2.control-label(for='description') Description*
               .col-lg-10
-                input#description.form-control(name='description',type='text', placeholder='Description')
+                input#description.form-control(name='description',type='text', placeholder='Game description', required="required")
             .form-group
-              label.col-lg-2.control-label(for='inputPrice') Price
+              label.col-lg-2.control-label(for='inputPrice') Price*
               .col-lg-10
-                input#inputPrice.form-control(name='price',type='text', placeholder='Price')
+                input#inputPrice.form-control(name='price',type='text', placeholder='Game price', required="required")
             .form-group
-              label.col-lg-2.control-label(for='inputFile') File Upload
+              label.col-lg-2.control-label(for='inputFile') Game image*
               .col-lg-10
-                input#inputFile.form-control(name='image-file', type='file', placeholder='File')
+                input#inputFile.form-control(name='image-file', type='file', placeholder='File', required="required")
+            .form-group
+              label.col-lg-2.control-label(for='inputVideo') Video
+              .col-lg-10
+                input#inputVideo.form-control(name='video', type='text', placeholder='Enter video URL from youtube')
+            .form-group
+              label.col-lg-2.control-label(for='tags') Tags*
+              .col-lg-10
+                input#tags.form-control(name='tags',type='text', placeholder='Enter game tags separated by a space', required="required")
             .form-group
               .col-lg-10.col-lg-offset-2
-                button.btn.btn-default(type='reset') Cancel
-                button.btn.btn-primary(type='submit') Add Product
+                button.btn.btn-default(type='reset') Clear form
+                button.btn.btn-primary(type='submit') Add Game
+            span * - required
