@@ -1,0 +1,23 @@
+extends layout
+block content
+ h1
+  | Reviews
+ .container
+  .row
+   each review in data
+    .col-md-4
+     .panel.panel-default
+      .panel-heading
+       a(href="reviews/" + review.id)
+        =review.title
+      if review.images.length > 0
+       img.img-responsive(style="margin: 10px auto", src=review.images[0])
+      ul.list-group
+       li.list-group-item
+        ='Rating: '
+        span.badge
+         =review.rating
+       li.list-group-item
+        ='Summary: '
+        span.badge
+         =review.summary

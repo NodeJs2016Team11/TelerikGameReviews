@@ -1,5 +1,7 @@
 'use strict';
 
+var auth = require('../config/auth');
+
 module.exports = function (Game) {
 
   function get(req, res) {
@@ -9,7 +11,8 @@ module.exports = function (Game) {
       }
       res.render('games-all', {
         data: games,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        isAdmin: auth.isInRole("admin")
       });
     });
   }
@@ -48,7 +51,8 @@ module.exports = function (Game) {
       console.log(game);
       res.render('game-details', {
         data: game,
-        isAuthenticated: req.isAuthenticated()
+        isAuthenticated: req.isAuthenticated(),
+        isAdmin: auth.isInRole("admin")
       });
     });
 
@@ -56,7 +60,8 @@ module.exports = function (Game) {
 
   function getCreate(req, res) {
     res.render('game-add', {
-      isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated(),
+      isAdmin: auth.isInRole("admin")
     });
   }
 
