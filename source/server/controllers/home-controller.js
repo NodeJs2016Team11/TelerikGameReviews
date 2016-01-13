@@ -3,7 +3,6 @@
 var auth = require('../config/auth');
 
 module.exports = function (Game) {
-
   function goHome(req, res) {
     res.redirect('/home');
   }
