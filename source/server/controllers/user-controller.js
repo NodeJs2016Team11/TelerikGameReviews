@@ -77,7 +77,6 @@ module.exports = function (User) {
     createUser: createUser,
     updateUser: updateUser,
     getAllUsers: getAllUsers
-
   };
 
   return controller;

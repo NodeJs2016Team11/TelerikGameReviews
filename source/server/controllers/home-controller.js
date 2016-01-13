@@ -1,5 +1,7 @@
 'use strict';
 
+var auth = require('../config/auth');
+
 module.exports = function (Product) {
 
   function goHome(req, res) {
@@ -15,9 +17,9 @@ module.exports = function (Product) {
         date: -1 //Sort by Date Added DESC
       }
     }, function (err, products) {
-
       res.render('home', {
-        data: products
+        data: products,
+        isAuthenticated: req.isAuthenticated()
       });
     });
   }

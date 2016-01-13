@@ -10,6 +10,7 @@ let express = require('express'),
 
 router.post('/register', userController.createUser)
   .get('/login', authController.login)
+  .get('/logout', authController.logout)
   .post('/login', auth.login)
   .post('/logout', auth.logout);
 

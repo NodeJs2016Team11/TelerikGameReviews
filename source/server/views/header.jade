@@ -12,7 +12,13 @@ header.navbar.navbar-inverse.navbar-fixed-top(role='banner')
       div.nav.navbar-nav.navbar-right
         .navbar-form
           .btn-toolbar
+              if isAuthenticated
+                form(action="/logout" method="POST")
+
+                  button.btn.btn-success(type="submit") Logout
+
+              else
+
+                a.btn.btn-success(href="/login") Login
             
-              a.btn.btn-success(href="/login") Login
-            
-              a.btn.btn-primary(href="/register") Sign Up
+                a.btn.btn-primary(href="/register") Sign Up
