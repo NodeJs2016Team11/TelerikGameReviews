@@ -8,7 +8,7 @@ let gamesSchema = mongoose.Schema({
     description: String,
     dateAdded: { type: Date, default: Date.now },
     slug: String,
-    rating: { type: Number, min: 1, max: 10 },
+    rating: { type: Number, min: 1, max: 10, default: 1 },
     images: [String],
     videos: [String],
     featured: Boolean,
