@@ -1,0 +1,28 @@
+extends layout
+block content
+  .container
+    if data.user==false
+      .alert.alert-danger.fade.in.text-center Wrong username or password
+        i.fa.fa-warning
+        button(type="button" class="close" data-dismiss="alert") ×
+    if data.err!=null
+      .alert.alert-danger.fade.in.text-center= data.err
+        i.fa.fa-warning
+        button(type="button" class="close" data-dismiss="alert") ×
+
+    .well.col-md-8.col-md-offset-2
+      form.form-horizontal(name='loginForm', action='/login', method='POST')
+        fieldset
+          legend Login User
+          .form-group
+            label.col-md-2.control-label(for='username') Username
+            .col-md-10
+              input#confirmation.form-control(type='text', placeholder='Username', ng-model='user.username', name='username', required='required')
+          .form-group
+            label.col-md-2.control-label(for='password') Password
+            .col-md-10
+              input#password.form-control(type='password', placeholder='Password', ng-model='user.password', name='password', required='required')
+          .pull-right.btn-toolbar
+            button.btn.btn-primary(ng-disabled='loginForm.$invalid')
+              | Login
+            button.btn.btn-primary(type='reset') Cancel

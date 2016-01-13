@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    link(href="/components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(href="/components/font-awesome/css/font-awesome.min.css", rel="stylesheet")
+    link(href="/css/custom.css", rel="stylesheet")
+    link(href="/css/main.css", rel="stylesheet")
+
+  body(ng-app="myApp")
+    include header
+    div.container.col-md-8.col-md-offset-2.text-center
+      .row
+        .col-md-12
+          .error-template
+            h1
+              | Oops!
+            h2
+              | You are not authorized to access this page
+            .error-actions
+              a.btn.btn-primary.btn-lg(href='/home')
+                span.glyphicon.glyphicon-home
+                |               Take Me Home
+
+
+    script(src='/components/jquery/dist/jquery.min.js', type='text/javascript', rel='script')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js', type='text/javascript', rel='script')

@@ -1,0 +1,12 @@
+extends layout
+block content
+  h1
+    | Games
+  ol
+    each product in data
+      li= product.name 
+        a(href='/products/'+product.id) LINK
+        if product.image
+          img(src=product.image)
+        else
+          img(src='images/ninja.jpg')

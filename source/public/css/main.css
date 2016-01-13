@@ -1,0 +1,9 @@
+body{
+  margin-top: 50px;
+  background: #DAECEE;
+}
+
+.not-found{
+  background:#DAECEE url('/images/404.png') no-repeat fixed center;
+  height: 100%;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "file-uploader",
+  "version": "1.0.0",
+  "description": "upload files ",
+  "main": "app.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ME",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.3",
+    "express-session": "^1.13.0",
+    "formidable": "^1.0.17",
+    "fs-extra": "^0.26.4",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.3.4",
+    "mongoose-unique-validator": "^0.6.2",
+    "mongoose-validator": "^1.2.4",
+    "multer": "^1.1.0",
+    "node-uuid": "^1.4.7",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "url": "^0.11.0",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "tern-node-express": "^0.3.0"
+  }
+}

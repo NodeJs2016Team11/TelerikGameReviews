@@ -1,0 +1,13 @@
+extend layout
+block carousel
+  include carousel
+block content
+  h1
+    | Games
+  ol
+    each product in data
+      li= product.name
+        if product.image
+          img(src=product.image)
+        else
+          img(src='images/ninja.jpg')

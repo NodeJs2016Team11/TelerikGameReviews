@@ -1,0 +1,39 @@
+extends layout
+block content
+  .container
+    if data.user==false
+      .alert.alert-danger.fade.in.text-center Username already taken
+        i.fa.fa-warning
+        button(type="button" class="close" data-dismiss="alert") ×
+    if data.err!=null
+      .alert.alert-danger.fade.in.text-center= data.err
+        i.fa.fa-warning
+        button(type="button" class="close" data-dismiss="alert") ×
+    .well.col-md-8.col-md-offset-2
+      form.form-horizontal(name='signUpForm', action='/register', method='POST')
+        fieldset
+          legend Create New User
+          .form-group
+            label.col-md-2.control-label(for='firstName') First Name
+            .col-md-10
+              input#firstName.form-control(type='text', placeholder='First Name', ng-model='user.firstName', name='firstName', required='required')
+          .form-group
+            label.col-md-2.control-label(for='lastName') Last Name
+            .col-md-10
+              input#lastName.form-control(type='text', placeholder='Last Name',ng-model='user.lastName', name='lastName', required='required')
+          .form-group
+            label.col-md-2.control-label(for='username') Username
+            .col-md-10
+              input#confirmation.form-control(type='text', placeholder='Username', ng-model='user.username', name='username', required='required')
+          .form-group
+            label.col-md-2.control-label(for='password') Password
+            .col-md-10
+              input#password.form-control(type='password', placeholder='Password', ng-model='user.password', name='password', required='required')
+          .form-group
+            label.col-md-2.control-label(for='confirmPassword') Confirm Password
+            .col-md-10
+              input#confirmPassword.form-control(type='password', placeholder='Confirm Password', ng-model='user.confirmPassword', name='confirmPassword', required='required')
+          .pull-right.btn-toolbar
+            button.btn.btn-primary(ng-disabled='signUpForm.$invalid || user.password != user.confirmPassword  || loginForm.password.length < 6')
+              | Create
+            button.btn.btn-primary(type='reset') Cancel
