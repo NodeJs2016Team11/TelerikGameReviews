@@ -19,7 +19,8 @@ module.exports = function (Game) {
         images = [],
         videos = [];
 
-    images.push(req.file.path);
+    var image = "images/" + req.file.filename;
+    images.push(image);
 
     if(req.body.video) {
       videos.push(req.body.video);
@@ -28,9 +29,9 @@ module.exports = function (Game) {
     let game = new Game({
       name: reqGame.name,
       description: reqGame.description,
-      price: +reqGame.price,
       images: images,
       videos: videos,
+      mainPageImage: image,
       tags: reqGame.tags.split(' ')
     });
     game.save(function (err) {
