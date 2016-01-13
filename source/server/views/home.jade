@@ -4,10 +4,24 @@ block carousel
 block content
   h1(class="centered")
     | Games
-  ol
-    each product in data
-      li= product.name
-        if product.image
-          img(src=product.image)
-        else
-          img(src='images/ninja.jpg')
+  .container
+    .row
+      each game in data
+        .col-md-4
+          .panel.panel-default
+            .panel-heading
+              a(href="games/" + game.id)
+                =game.name
+            if game.images.length > 0
+              img.img-responsive(src=game.images[0])
+            else
+              img.img-responsive(src=game.mainPageImage)
+            ul.list-group
+              li.list-group-item
+                ='Rating: '
+                span.badge
+                  =game.rating
+              li.list-group-item
+                ='Description: '
+                span.badge
+                  =game.description

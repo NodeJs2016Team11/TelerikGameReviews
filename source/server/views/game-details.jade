@@ -1,7 +1,9 @@
 include layout
 block content
   div.container
-    h2= data.name
+    h1= data.name
     p= data.description
-    p= data.price
-    img(src=data.image)
+    p Rating
+      span.badge
+        =data.rating
+    img.img-responsive(styles="width: 100%", src="../" + data.mainPageImage)
