@@ -1,6 +1,0 @@
-div(ng-repeat="game in games | orderBy: '-dateAdded' | limitTo: 10")
-    .row
-        .col-md-3
-            | {{ game.dateAdded | date: 'MM d yyyy' }}
-        .col-md-9
-            a(href="#/games/{{ game._id }}") {{ game.name }}
