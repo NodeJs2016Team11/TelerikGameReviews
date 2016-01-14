@@ -10,6 +10,7 @@ header.navbar.navbar-inverse.navbar-fixed-top(role='banner')
         img(src='/images/logo-main.png')
     .collapse.navbar-collapse
       ul.nav.navbar-nav
+
         li
           a(href="/games") Games
         if isAuthenticated && isAdmin
@@ -22,14 +23,18 @@ header.navbar.navbar-inverse.navbar-fixed-top(role='banner')
             a(href="/reviews/add") Add Review
       div.nav.navbar-nav.navbar-right
         .navbar-form
+
           .btn-toolbar
               if isAuthenticated
-                form(action="/logout" method="POST")
+                form.btn-toolbar(action="/logout" method="POST")
 
-                  button.btn.btn-success(type="submit") Logout
+                        if (currentUser)
+                            p.btn.btn-success GameOn #{currentUser.username}
+
+                            button.btn.btn-primary(type="submit") Logout
 
               else
 
                 a.btn.btn-success(href="/login") Login
-            
+
                 a.btn.btn-primary(href="/register") Sign Up
