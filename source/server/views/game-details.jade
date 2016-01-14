@@ -10,7 +10,7 @@ block content
         br
         div.badge
           i(class="fa fa-thumbs-up fa-lg rateUpGame", data-id=data.id)
-        if isAuthenticated && game.rating > 1
+        if isAuthenticated && data.rating > 1
           div.badge
-            i(class="fa fa-thumbs-down fa-lg rateDownGame", data-id=game.id)
+            i(class="fa fa-thumbs-down fa-lg rateDownGame", data-id=data.id)
     img.img-responsive(styles="width: 100%", src="../" + data.mainPageImage)
