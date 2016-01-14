@@ -6,4 +6,11 @@ block content
     p Rating
       span.badge
         =data.rating
+      if isAuthenticated && data.rating < 10
+        br
+        div.badge
+          i(class="fa fa-thumbs-up fa-lg rateUpGame", data-id=data.id)
+        if isAuthenticated && game.rating > 1
+          div.badge
+            i(class="fa fa-thumbs-down fa-lg rateDownGame", data-id=game.id)
     img.img-responsive(styles="width: 100%", src="../" + data.mainPageImage)

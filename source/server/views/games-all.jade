@@ -19,6 +19,12 @@ block content
                 ='Rating: '
                 span.badge
                   =game.rating
+                if isAuthenticated && game.rating < 10
+                  div.badge
+                    i(class="fa fa-thumbs-up fa-lg rateUpGame", data-id=game.id)
+                  if isAuthenticated && game.rating > 1
+                    div.badge
+                      i(class="fa fa-thumbs-down fa-lg rateDownGame", data-id=game.id)
               li.list-group-item
                 ='Description: '
                 span.badge

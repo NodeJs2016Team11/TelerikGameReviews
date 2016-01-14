@@ -48,7 +48,7 @@ module.exports = function (Game) {
     let id = req.params.id;
 
     Game.findById(id, function (err, game) {
-      console.log(game);
+      //console.log(game);
       res.render('game-details', {
         data: game,
         isAuthenticated: req.isAuthenticated(),
@@ -65,11 +65,40 @@ module.exports = function (Game) {
     });
   }
 
+  function rate(req, res) {
+    Game.findById(req.params.id, function(err, game) {
+      if(game != undefined) {
+        if(req.body.type == 'up') {
+          ++game.rating;
+          game.save(function (err, success) {
+            if(err) console.log(err);
+            res.json({
+              success: true
+            });
+          })
+        }
+        else if(req.body.type == 'down') {
+          --game.rating;
+          game.save(function (err, success) {
+            if(err) console.log(err);
+            res.json({
+              success: true
+            });
+          })
+        }
+      }
+      else {
+        res.json({success: false});
+      }
+    });
+  }
+
   let controller = {
     get: get,
     post: post,
     getById: getById,
-    getCreate: getCreate
+    getCreate: getCreate,
+    put: rate
   };
 
   return controller;
